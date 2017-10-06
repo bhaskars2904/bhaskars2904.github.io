@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>BhaskarWeb</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <h1><span id="first">B</span>haskar<span class="color">.</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#home1">Home</a></li>
+                <li><a href="#about">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="gallery_admin.html">Gallery Admin</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+</header>
+<div id="home1">
+    <img id="image" src="home_page.JPG"/>
+    <p id="text">
+        Welcome!! to my home
+    </p>
+</div>
+<div id="about">
+	</br></br></br></br></br></br><h2>Nice to meet you!</h2></br>
+	<div id="aboutext">
+		<p>Hi, I am <strong>Bhaskar Sharma</strong>. I completed my B. Tech in Civil Engineering from <strong>Indian Institute of Technology Kanpur</strong> in June 2017. I was born and brought up at Jaipur, Rajasthan. I got my schooling from St. Anselm's Sr. Sec. School Mansarovar, Jaipur.</p>
+		<p>I have been a sports enthusiast since my school days. Its a matter of immense pride and joy for being a member of IITK's Athletics team as a Discus thrower. I enjoy running long distances, 21km is the best that i completed. Apart from Athletics field i also love those Kookaboras at cricket nets.</p>
+		<p>Professionaly I am a Software Engineer and a pretty new creature at the realms of programming.</p>
+	</div>
+</div>
+<div id="contact">
+	</br></br></br></br></br></br><h2>Contact me</h2></br>
+	<div id="contactext">
+		<form id="contact_form" action="mailto:bhaskar.sharma@zemosolabs.com" method="POST" name="form1" onsubmit="required()" enctype="text/plain">
+            <div class="row">
+                <label for="name">Your name:</label><br />
+                <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+            </div>
+            <div class="row">
+                <label for="email">Your email:</label><br />
+                <input id="email" class="input" name="email" type="email" value="" /><br />
+            </div>
+            <div class="row">
+                <label for="message">Your message:</label><br />
+                <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+            </div>
+            <input type="hidden" name="action" value="submit"/>
+            <input id="submit_button" type="submit" value="Send email" />
+        </form>
+	</div>
+</div>
+<div id="gallery">
+	</br></br></br></br></br></br><h2>Gallery</h2>
+	<div id="gallerypics1">
+        <!-- Dynamic images content -->
+	</div>
+</div>
+<script src="webpage_javascript.js"></script>
+</body>
+</html>

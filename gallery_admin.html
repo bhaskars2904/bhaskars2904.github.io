@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>BhaskarGallery</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+	<style></style>
+</head>
+<body>
+	<header>
+    <div class="wrapper">
+        <h1><span id="first">B</span>haskar<span class="color">.</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#home1">Home</a></li>
+                <li><a href="index.html#about">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="gallery_admin.html">Gallery Admin</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+</header>
+
+	<!-- gallery section -->
+
+	<div id="gallery">
+	</br></br></br></br></br></br><h2>Gallery Admin</h2>
+	 <button id="add_button" type="button">Add Image</button>
+	<div id="gallerypics">
+	</div>
+    <!--adding the modal-->	
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Add Image</h2>
+            </div>
+            <div class="modal-body">
+            <form id="image_form" action="" name="form2">
+                <div class="row">
+                    <label for="nameimg">Image-Name:</label><br />
+                    <input id="nameimg" class="input" name="nameimg" type="text" value="" size="30" /><br />
+                </div>
+                <div class="row">
+                    <label for="url">Image-URL:</label><br />
+                    <input id="url" class="input" name="url" type="text" value="" /><br />
+                </div>
+                <div class="row">
+                    <label for="info">Image-info:</label><br />
+                    <input id="info" class="input" name="info" rows="7" cols="30" value=""></input><br />
+                </div>
+                <div class="row">
+                    <label for="update">Upload-date(dd/mm/yyyy):</label><br />
+                    <input id="update" class="input" name="update" type="text" value=""></input><br />
+                </div>
+                <button id="Addimage_button" type="button">Add Image</button>
+            </form>
+
+            </div>
+            <div class="modal-footer">
+              <h3></h3>
+            </div>
+        </div>
+
+    </div>
+    <!-- pop-up for update/remove -->
+    <div id="myModal1" class="modal1">
+
+      <!-- Modal content -->
+        <div class="modal-content1">
+            <div class="modal-header1">
+              <span class="close1">&times;</span>
+              <h2>Update/Remove Image</h2>
+            </div>
+            <div class="modal-body1">
+              <!-- <p>Some text in the Modal Body</p>
+              <p>Some other text...</p> -->
+            <form id="remove_form" action="" name="form3" autocomplete="off">
+                <div class="row">
+                    <label for="nameimg1">Image-Name:</label><br />
+                    <input id="nameimg1" class="input" name="nameimg1" type="text" value="" size="30" /><br />
+                </div>
+                <div class="row">
+                    <label for="url1">Image-URL:</label><br />
+                    <input id="url1" class="input" name="url1" type="text" value="" /><br />
+                </div>
+                <div class="row">
+                    <label for="info1">Image-info:</label><br />
+                    <input id="info1" class="input" name="info1" rows="7" cols="30" value=""></input><br />
+                </div>
+                <div class="row">
+                    <label for="update1">Upload-date(dd/mm/yyyy):</label><br />
+                    <input id="update1" class="input" name="update1" type="text" value=""></input><br />
+                </div>
+                <!-- dynamic buttons to come -->
+            </form>
+
+            </div>
+            <div class="modal-footer1">
+              <h3></h3>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+	<script src="gallery_admin_javascript.js"></script>
+</body>
+</html>
