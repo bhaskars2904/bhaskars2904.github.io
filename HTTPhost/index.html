@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <!-- Google Tag Manager -->
+ <script>//(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+// new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+// j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+// 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+// })(window,document,'script','dataLayer','GTM-W3QDJVW');</script>
+<!-- End Google Tag Manager -->
+
+    <script type="text/javascript">
+// 86acbd31cd7c09cf30acb66d2fbedc91daa48b86:1511947674.46
+!function(n,t,c,e,u){function r(n){try{f=n(u)}catch(n){return h=n,void i(p,n)}i(s,f)}function i(n,t){for(var c=0;c<n.length;c++)d(n[c],t);
+}function o(n,t){return n&&(f?d(n,f):s.push(n)),t&&(h?d(t,h):p.push(t)),l}function a(n){return o(!1,n)}function d(t,c){
+n.setTimeout(function(){t(c)},0)}var f,h,s=[],p=[],l={then:o,catch:a,_setup:r};n[e]=l;var v=t.createElement("script");
+v.src=c,v.async=!0,v.id="_uasdk",v.rel=e,t.head.appendChild(v)}(window,document,'https://web-sdk.urbanairship.com/notify/v1/ua-sdk.min.js',
+  'UA', {
+    appKey: 'V5kIBVz2Sty8Rq3oSWps9A',
+    token: 'MTpWNWtJQlZ6MlN0eThScTNvU1dwczlBOjgzQUJzVHRNem5pTm83TGlaaldiNVd6X3d1Q2NrUUh4SXdKMHQ1QmV2ZkE',
+    vapidPublicKey: 'BIuF1XnM48hMVwL7HYyfoBPcdCCiVmCRTgOKqV8LIKUDLZBJJSE7FyuT1j23GGhqmLv_u5xJTwmgpKKpPNQvmGE='
+  });
+
+</script>
+
+<script>
+  function onUAReady() {
+    var output = document.getElementById('output')
+
+    // Write out all of the getters
+    output.textContent += 'User Id:' + UAirship.getUserId() + '\n'
+    output.textContent += 'Channel Id:' + UAirship.getChannelId() + '\n'
+    output.textContent += 'Named User Id:' + UAirship.getNamedUser() + '\n'
+    output.textContent += 'Device Model: ' + UAirship.getDeviceModel() + '\n'
+    output.textContent += 'Message Id: ' + UAirship.getMessageId() + '\n'
+    output.textContent += 'Message Title: ' + UAirship.getMessageTitle() + '\n'
+    output.textContent += 'Message Sent Date: ' + UAirship.getMessageSentDate() + '\n'
+    output.textContent += 'Message Sent Date MS: ' + UAirship.getMessageSentDateMS()
+
+    var closeButton = document.getElementById('close')
+    closeButton.disabled = false
+    closeButton.addEventListener('click', function()  {
+      UAirship.close()
+    })
+
+    var addTagsButton = document.getElementById('addTags')
+    addTagsButton.disabled = false
+    addTagsButton.addEventListener('click', function()  {
+        UAirship.runAction("add_tags_action", "hi", function(error, result) {
+          if (error) {
+            console.log("Failed to add tags!")
+          } else {
+            console.log("Tags added!")
+          }
+      })
+    })
+
+    var openExternalURLButton = document.getElementById('openURL')
+    openExternalURLButton.disabled = false
+    openExternalURLButton.addEventListener('click', function()  {
+        UAirship.runAction("open_external_url_action", "http://www.urbanairship.com", function() {return true})
+    })
+
+  }
+
+  document.addEventListener('ualibraryready', onUAReady, false)
+</script>
+  </head>
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3QDJVW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+<!-- End Google Tag Manager (noscript) -->
+
+    <select id="mySelect">
+      <option value="appleil">Apple</option>
+      <option value="orangeil">Orange</option>
+      <option value="pineapple">Pineapple</option>
+      <option value="banana">Banana</option>
+    </select>
+    <button id="close" disabled>close</button><br><br>
+    <button id="addTags" disabled>add tags</button><br><br>
+    <button id="openURL" disabled>open external URL</button><br><br>
+    <button onclick="location.href='http://www.urbanairship.com'">open URL in webview</button>
+    <button id="register">Sign up for notifications</button>
+    <button type="button" onclick="myFunction()">Click here before subscribing</button>
+    <pre id="output"></pre>
+
+    <script>
+    var taginput
+    function myFunction() {
+        var x = document.getElementById("mySelect").selectedIndex;
+        taginput = document.getElementsByTagName("option")[x].value;
+        console.log(taginput);
+    }
+
+document.getElementById('register').addEventListener('click', function(){
+//  UA.then(sdk => {
+   UA.then(function(sdk) {
+    sdk.register()
+     sdk.channel.tags.add(taginput)//'browser-tag')//, 'browser-group')
+   console.log(sdk.channel.id)
+   })
+
+
+// add tags
+//  UA.then(function(sdk) {
+
+  // Add a tag to a group
+//  sdk.channel.tags.add('browser-tag', 'browser-group')
+
+  // Remove a tag from a group
+  //sdk.channel.tags.remove('tag-name', 'group-name')
+
+  // Set tags on a group
+  //sdk.channel.tags.set(['silver-member', 'gold-member'], 'group-name')
+  // Resets all tags for the given tag group.
+
+//})
+
+ });
+
+//  - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//     UA_LTRACE(@"APNS device token: %@", deviceToken);
+
+//     // Updates the device token and registers the token with UA. This won't occur until
+//     // push is enabled if the outlined process is followed. This call is required.
+//     [[UAPush shared] registerDeviceToken:deviceToken];
+// }
+</script>
+
+
+  </body>
+  
+</html>
